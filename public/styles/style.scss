@@ -1,0 +1,25 @@
+@import "./responsive";
+
+/*
+******************************************
+VARIABLES
+******************************************
+*/
+:root {
+    --primary-color: #0e2137;
+}
+
+* {
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+/*
+******************************************
+GENERAL
+******************************************
+*/
+body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
