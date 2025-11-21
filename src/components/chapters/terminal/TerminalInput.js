@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function TerminalInput({ runCommand }) {
+export default function TerminalInput({ runCommand, currentPath }) {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
 
@@ -17,7 +17,7 @@ export default function TerminalInput({ runCommand }) {
 
   return (
     <div style={{ display: "flex", padding: "0 1rem 1rem 1rem", fontFamily: "monospace", color: "#0f0" }}>
-      <span>{"> "}</span>
+      <span>{`ROOT ${currentPath} > `}</span>
       <input
         ref={inputRef}
         value={input}

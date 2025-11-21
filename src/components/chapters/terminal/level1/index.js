@@ -1,12 +1,5 @@
-import TerminalWrapper from "../TerminalWrapper";
-import { useNavigate } from "react-router-dom";
+import ProtectedLevel from "../../ProtectedLevel";
 
 export default function Level1() {
-  const navigate = useNavigate();
-
-  const handleLevelComplete = (levelNum) => {
-    navigate(`/level${levelNum + 1}`);
-  };
-
-  return <TerminalWrapper levelNumber={1} onLevelComplete={handleLevelComplete} />;
+  return <ProtectedLevel levelNumber={1} nextLevel={2} />;
 }
