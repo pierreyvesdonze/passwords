@@ -211,6 +211,11 @@ export const levels = {
                 Trouve le mot qui resume cette construction invisible,\n\
                 celui qui nous rassemble autant qu'il nous limite.",
             },
+            "clue.txt": {
+              type: "file",
+              content:
+                "nous vivons tous dedans, en tant que citoyens, avec ses lois et nos devoirs",
+            },
           },
         },
       },

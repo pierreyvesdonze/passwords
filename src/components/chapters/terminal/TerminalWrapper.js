@@ -13,11 +13,12 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
   const [history, setHistory] = useState([
     "SYSTEM v1.0.15 — ACCESS REQUIRED",
     "Tape 'help' pour voir les commandes.",
-    levelData.enigme || "", // au cas où ton énigme est ici
+    levelData.enigme || "" // au cas où ton énigme est ici
   ]);
 
   const [currentPath, setCurrentPath] = useState(levelData.startPath);
   const [showGlitch, setShowGlitch] = useState(false);
+  
   const runCommand = (input) => {
     const trimmed = input.trim();
 
@@ -51,7 +52,7 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
 
       setHistory((h) => [...h, `ROOT ${currentPath} > ${input}`, output]);
 
-      // Si niveau 4, déclenchement du glitch
+       // Si niveau 4, déclenchement du glitch
       if (levelNumber === 4) {
         setShowGlitch(true);
         return;
@@ -78,7 +79,7 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
     setHistory((h) => [...h, `ROOT ${currentPath} > ${input}`, output]);
   };
 
-  // --- Affichage glitch si activé ---
+    // --- Affichage glitch si activé ---
   if (showGlitch) {
     return (
       <TerminalGlitch
@@ -88,6 +89,7 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
       />
     );
   }
+
 
   return (
     <div className="terminal-wrapper">
