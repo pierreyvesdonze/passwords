@@ -23,3 +23,136 @@ body {
     margin: 0;
     overflow: hidden;
 }
+
+/*
+******************************************
+TERMINAL
+******************************************
+*/
+.terminal-wrapper {
+  background-color: black;
+  color: #00ff00;
+  padding: 1rem;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.terminal-input {
+  width: 100%;
+  background: black;
+  color: #00ff00;
+  border: none;
+  outline: none;
+}
+
+.terminal-line {
+  line-height: 1.4;
+}
+
+/*
+******************************************
+CROYANCE
+******************************************
+*/
+/* ------ LAYOUT GLOBAL ------ */
+.level5-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.dashboard {
+  display: flex;
+  width: 80%;
+  height: 70vh;
+  border: 3px solid #444;
+  border-radius: 12px;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+/* ------ BOUTONS ------ */
+.buttons-panel {
+  width: 65%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.word-btn {
+  padding: 10px 16px;
+  background: #2d2d2d;
+  border: 2px solid #555;
+  color: #eee;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.word-btn:hover {
+  background: #3d3d3d;
+}
+
+/* ---- états de couleur ---- */
+.word-btn.green {
+  background: #004d00 !important;
+  border-color: #00ff55 !important;
+  color: #00ff55 !important;
+}
+
+.word-btn.red {
+  background: #4d0000 !important;
+  border-color: #ff4444 !important;
+  color: #ff4444 !important;
+}
+
+/* ----- ÉCRAN VERT ----- */
+.screen {
+  width: 35%;
+  background: #002800;
+  color: #00ff88;
+  padding: 20px;
+  overflow-y: auto;
+  border-left: 3px solid #333;
+}
+
+.screen-line {
+  margin-bottom: 6px;
+}
+
+/* ------ COMBINE ------- */
+.combine-zone {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.combine-btn {
+  padding: 10px 25px;
+  font-size: 16px;
+  border: 2px solid #444;
+  background: #222;
+  color: #fafafa;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.combine-btn:hover {
+  background: #333;
+}
+
+.final-input {
+  padding: 10px 14px;
+  width: 250px;
+  background: #111;
+  border: 2px solid #444;
+  color: #eee;
+  border-radius: 6px;
+}
+
+
