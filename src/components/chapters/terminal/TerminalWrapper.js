@@ -18,7 +18,6 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
 
   const [currentPath, setCurrentPath] = useState(levelData.startPath);
   const [showGlitch, setShowGlitch] = useState(false);
-  
   const runCommand = (input) => {
     const trimmed = input.trim();
 
