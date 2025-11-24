@@ -6,6 +6,7 @@ import Level3 from "./components/chapters/terminal/level3";
 import Level4 from "./components/chapters/terminal/level4";
 import Level5Dashboard from "./components/chapters/croyance/level5/Level5Dashboard";
 import Level6 from "./components/chapters/guerre";
+import ScreenGuard from "./utils/screenGuard";
 
 function App() {
   return (
@@ -13,12 +14,30 @@ function App() {
       <Routes>
         {/* / redirige vers le dernier niveau valide */}
         <Route path="/" element={<RedirectToCurrentLevel />} />
-        <Route path="/level1" element={<Level1 />} />
-        <Route path="/level2" element={<Level2 />} />
-        <Route path="/level3" element={<Level3 />} />
-        <Route path="/level4" element={<Level4 />} />
-        <Route path="/level5" element={<Level5Dashboard />} />
-        <Route path="/level6" element={<Level6 />} />
+
+        <Route path="/level1" element={
+          <ScreenGuard><Level1 /></ScreenGuard>
+        } />
+
+        <Route path="/level2" element={
+          <ScreenGuard><Level2 /></ScreenGuard>
+        } />
+
+        <Route path="/level3" element={
+          <ScreenGuard><Level3 /></ScreenGuard>
+        } />
+
+        <Route path="/level4" element={
+          <ScreenGuard><Level4 /></ScreenGuard>
+        } />
+
+        <Route path="/level5" element={
+          <ScreenGuard><Level5Dashboard /></ScreenGuard>
+        } />
+
+        <Route path="/level6" element={
+          <ScreenGuard><Level6 /></ScreenGuard>
+        } />
       </Routes>
     </Router>
   );
