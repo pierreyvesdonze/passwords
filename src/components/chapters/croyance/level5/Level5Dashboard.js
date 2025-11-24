@@ -120,6 +120,7 @@ export default function Level5Dashboard() {
     if (e.key === "Enter") {
       const val = e.target.value.trim().toLowerCase();
       if (val === "croyance") {
+        sessionStorage.setItem("currentLevel", "6");
         navigate("/level6");
       } else {
         e.target.value = "";

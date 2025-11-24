@@ -157,4 +157,239 @@ CROYANCE
   border: 2px solid #444;
   color: #eee;
   border-radius: 6px;
+}
+
+/*
+******************************************
+MORSE / GUERRE
+******************************************
+*/
+.btn-play-morse {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: rgb(101, 105, 102);
+  border: medium;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 180px;
+  box-shadow: 1px 1px 2px 2px black;
+  color: white;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+}
+
+.btn-play-morse:active {
+  box-shadow: 1px 1px 1px 1px black;
+  transform: translateY(1px);
+}
+
+.guerre-container {
+  padding-top: 40px;
+  color: white;
+  text-align: center;
+}
+
+.guerre-title {
+  font-size: 2rem;
+}
+
+.guerre-dashboard {
+  width: 90%;
+  height: 60vh;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 12px;
+  border: 3px solid #333;
+  display: flex;
+  padding: 20px;
+  background: #111;
+  color: white;
+}
+
+.guerre-left-panel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 9px;
+}
+
+.guerre-left-panel > * {
+  margin-bottom: 30px;
+}
+
+.guerre-right-panel {
+  width: 50%;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid #333;
+  position: relative;
+  color: #0f0; /* texte vert style ancien écran */
+  border-radius: 6px; /* léger arrondi */
+  /* fond vieux terminal : vert au centre, noir aux coins */
+  background-color: #053a09; /* centre vert */
+  background-image: radial-gradient(ellipse 80% 80% at center, #053a09 0%, #053a09 40%, rgba(0, 0, 0, 0.6) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.guerre-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s;
+}
+
+.guerre-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+/* Player button & Validate button*/
+.guerre-btn-play,
+.guerre-btn-validate {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: #2b2b2b;
+  box-shadow: 1px 1px 2px 2px black;
+  transition: all 0.1s ease-in-out;
+}
+
+/* Effet au clic */
+.guerre-btn-play:active,
+.guerre-btn-validate:active {
+  box-shadow: 1px 1px 1px 0px black;
+  transform: translateY(2px);
+}
+
+/* Input */
+.guerre-input-field {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  border-radius: 8px;
+  margin-right: 10px;
+  border: 1px solid #555;
+  background: #053a09;
+  color: white;
+}
+
+/* Toggle */
+.guerre-toggle-bar {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.guerre-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.guerre-toggle-switch {
+  width: 50px;
+  height: 26px;
+  border-radius: 20px;
+  background: #555;
+  position: relative;
+  transition: 0.2s;
+  box-shadow: inset black 1px 1px 2px 2px;
+}
+
+.guerre-toggle-switch.guerre-on {
+  background: #4caf50;
+}
+
+.guerre-toggle-knob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.guerre-toggle-switch.guerre-on .guerre-toggle-knob {
+  left: 26px;
+}
+
+/* Notice */
+.guerre-notice {
+  height: 100%;
+}
+
+.guerre-notice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px 20px;
+  margin-top: 20px;
+  overflow: auto;
+  height: 57vh;
+}
+
+/* Flicker animation */
+@keyframes flickerHard {
+  0% {
+    opacity: 1;
+  }
+  3% {
+    opacity: 0.3;
+  }
+  5% {
+    opacity: 1.2;
+  }
+  10% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 1.4;
+  }
+  39% {
+    opacity: 0.1;
+  }
+  41% {
+    opacity: 1.7;
+  }
+  45% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  78% {
+    opacity: 1.2;
+  }
+  82% {
+    opacity: 0.2;
+  }
+  86% {
+    opacity: 1.5;
+  }
+  90% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.guerre-flicker {
+  animation: flickerHard 6s infinite linear;
 }/*# sourceMappingURL=style.css.map */
