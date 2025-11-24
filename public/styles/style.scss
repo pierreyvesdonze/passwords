@@ -179,9 +179,13 @@ MORSE / GUERRE
 }
 
 .guerre-container {
-  padding-top: 40px;
   color: white;
   text-align: center;
+  background-color: black;
+  height: 100vh;
+  align-content: center;
+  margin: none;
+  padding: 0;
 }
 
 .guerre-title {
@@ -219,18 +223,17 @@ MORSE / GUERRE
   padding: 20px;
   font-size: 16px;
   line-height: 1.4;
-  border-left: 2px solid #333;
+  border: 2px solid #333;
   position: relative;
-  color: #0f0; /* texte vert style ancien écran */
-  border-radius: 6px; /* léger arrondi */
+  color: #0f0;
+  border-radius: 6px;
 
-  /* fond vieux terminal : vert au centre, noir aux coins */
-  background-color: #053a09; /* centre vert */
+  background-color: #053a09;
   background-image: radial-gradient(
       ellipse 80% 80% at center,
-      #053a09 0%,       /* centre vert */
-      #053a09 40%,      /* quasi tout l'écran vert */
-      rgba(0, 0, 0, 0.6) 100%  /* noir aux coins */
+      #053a09 0%,       
+      #053a09 40%,
+      rgba(0, 0, 0, 0.8) 100% 
     );
   background-repeat: no-repeat;
   background-size: cover;

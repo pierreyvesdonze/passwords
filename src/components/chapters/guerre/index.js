@@ -76,7 +76,6 @@ export default function Level6() {
 
   return (
     <div className="guerre-container">
-      <h1 className="guerre-title">Level 6</h1>
       <div className="guerre-dashboard">
         <div
           className="guerre-left-panel"
@@ -85,6 +84,7 @@ export default function Level6() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
+            marginRight: "10px"
           }}
         >
           <Level6Toggles
