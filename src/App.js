@@ -10,7 +10,7 @@ import ScreenGuard from "./utils/screenGuard";
 
 function App() {
   return (
-    <HashRouter>
+    <Router>
       <Routes>
         {/* / redirige vers le dernier niveau valide */}
         <Route path="/" element={<RedirectToCurrentLevel />} />
@@ -39,7 +39,7 @@ function App() {
           <ScreenGuard><Level6 /></ScreenGuard>
         } />
       </Routes>
-    </HashRouter>
+    </Router>
   );
 }
 
