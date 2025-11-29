@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/passwords/static/js/main.c3eff87b.js",
+    "index.html": "/passwords/index.html",
+    "main.c3eff87b.js.map": "/passwords/static/js/main.c3eff87b.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c3eff87b.js"
+  ]
+}
