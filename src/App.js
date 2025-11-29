@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import RedirectToCurrentLevel from "./components/chapters/RedirectToCurrentLevel";
 import Level1 from "./components/chapters/terminal/level1";
 import Level2 from "./components/chapters/terminal/level2";
@@ -10,7 +10,7 @@ import ScreenGuard from "./utils/screenGuard";
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         {/* / redirige vers le dernier niveau valide */}
         <Route path="/" element={<RedirectToCurrentLevel />} />
@@ -39,7 +39,7 @@ function App() {
           <ScreenGuard><Level6 /></ScreenGuard>
         } />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
