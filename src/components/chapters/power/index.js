@@ -14,14 +14,14 @@ export default function Level7() {
     isCellSelected,
     isCellFound,
     foundWords,
-    handleSubmitWord,
+    setFoundWords,
     passwordCoords,
     showPassword,
+    setShowPassword,
     wordsList,
-    resetSelection
+    resetSelection,
   } = useWordSearch();
 
-  // 👉 ajout minimal : gestion input mot de passe
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const CORRECT = "pouvoir";
@@ -36,14 +36,18 @@ export default function Level7() {
       return;
     }
 
-    // erreur
     setError(true);
     setTimeout(() => setError(false), 700);
   }
 
+  // Autoplay : trouve tous les mots et révèle le mot final
   useEffect(() => {
-    // rien
-  }, []);
+    if (password.toLowerCase().trim() === "autoplay") {
+      setFoundWords(wordsList);
+      setShowPassword(true);
+      setPassword(""); // optionnel : efface l'input pour plus de clarté
+    }
+  }, [password, wordsList, setFoundWords, setShowPassword]);
 
   return (
     <div className="power-layout">
@@ -70,7 +74,6 @@ export default function Level7() {
       <div className="power-right">
         <FoundPanel wordsList={wordsList} foundWords={foundWords} />
 
-        {/* 👉 formulaire mot de passe */}
         <form onSubmit={handlePasswordSubmit} className="power-password-form">
           <input
             type="text"
