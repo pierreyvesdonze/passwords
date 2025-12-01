@@ -65,7 +65,7 @@ export const registry = {
   },
 
   reset: () => {
-    sessionStorage.clear(); // supprime tout ce qui est dans la session
+    localStorage.clear(); // supprime tout ce qui est dans la session
     return "Session cleared. Votre progression est réinitialisée.";
   },
 

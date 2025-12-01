@@ -66,7 +66,7 @@ export default function Level6() {
 
   const handleValidate = () => {
     if (userInput.trim().toLowerCase() === "guerre") {
-      sessionStorage.setItem("currentLevel", "7");
+      localStorage.setItem("currentLevel", "7");
       navigate("/level7");
     } else {
       setUserInput("");

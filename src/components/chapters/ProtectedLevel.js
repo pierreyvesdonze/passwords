@@ -7,7 +7,7 @@ export default function ProtectedLevel({ levelNumber, nextLevel }) {
   const navigate = useNavigate();
 
   const handleLevelComplete = () => {
-    sessionStorage.setItem("currentLevel", nextLevel);
+    localStorage.setItem("currentLevel", nextLevel);
     navigate(`/level${nextLevel}`);
   };
 
