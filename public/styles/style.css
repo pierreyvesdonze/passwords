@@ -395,4 +395,212 @@ MORSE / GUERRE
 }
 .guerre-flicker {
   animation: flickerHard 6s infinite linear;
+}
+
+/*
+******************************************
+POWER
+******************************************
+*/
+.power-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  min-height: calc(100vh - 60px);
+  background: radial-gradient(circle at 10% 10%, rgba(0, 20, 0, 0.5), #020706 40%, #000 100%);
+  font-family: "Courier New", monospace;
+  color: #bfffbf;
+}
+
+/* LEFT: grid + title */
+.power-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 720px; /* left column fixed width */
+}
+
+.power-title {
+  margin: 0 0 8px 0;
+  color: #9ff89f;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(150, 255, 150, 0.12);
+}
+
+/* grid */
+.power-grid {
+  display: inline-block;
+  background: linear-gradient(180deg, rgba(10, 20, 10, 0.65), rgba(0, 0, 0, 0.5));
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid rgba(10, 60, 10, 0.6);
+}
+
+.power-row {
+  display: flex;
+}
+
+.power-cell {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #061006;
+  color: #0b3b0b; /* vert foncé de base */
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 120ms ease;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(20, 60, 20, 0.2);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* selected (during selection) -> light green */
+.power-cell-selected {
+  color: #bfffbf;
+  text-shadow: 0 0 6px rgba(160, 255, 160, 0.9);
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(20, 60, 20, 0.25), rgba(0, 0, 0, 0.2));
+}
+
+/* found -> green glow */
+.power-cell-found {
+  color: #e6ffe6;
+  text-shadow: 0 0 8px rgba(120, 255, 120, 0.95), 0 0 20px rgba(80, 255, 80, 0.25);
+  background: linear-gradient(180deg, rgba(40, 90, 40, 0.35), rgba(0, 0, 0, 0.25));
+  transform: none;
+}
+
+/* password letters -> red glow when revealed (showPassword true) */
+.power-cell-password {
+  color: #ffb3b3 !important;
+  text-shadow: 0 0 10px rgba(255, 80, 80, 0.95), 0 0 24px rgba(255, 60, 60, 0.15);
+  background: linear-gradient(180deg, rgba(80, 10, 10, 0.12), rgba(0, 0, 0, 0.12));
+  font-weight: 700;
+}
+
+/* controls */
+.power-controls {
+  margin-top: 12px;
+}
+
+.power-btn {
+  background: #0f2d0f;
+  border: 1px solid rgba(40, 140, 40, 0.6);
+  color: #bfffbf;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* RIGHT panel - old monitor look */
+.power-right {
+  width: 320px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 36px;
+  margin-left: 36px;
+}
+
+.power-panel {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(2, 10, 2, 0.85), rgba(0, 0, 0, 0.6));
+  border-radius: 10px;
+  border: 2px solid rgba(40, 80, 40, 0.4);
+  padding: 18px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+}
+
+.power-panel-inner {
+  min-height: 240px;
+}
+
+.power-panel-title {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #c4f7c4;
+  text-shadow: 0 0 6px rgba(120, 255, 120, 0.08);
+  letter-spacing: 1px;
+}
+
+.power-panel-listed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.power-panel-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #7fbf7f;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.02));
+  font-size: 13px;
+}
+
+.power-found {
+  color: #eaffea;
+  text-shadow: 0 0 8px rgba(120, 255, 120, 0.95);
+  background: linear-gradient(180deg, rgba(5, 30, 5, 0.6), rgba(0, 0, 0, 0.1));
+}
+
+/* small responsive fallback */
+@media (max-width: 980px) {
+  .power-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .power-left {
+    width: auto;
+  }
+  .power-right {
+    width: auto;
+  }
+}
+.power-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 30px;
+}
+
+.power-password-input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #0f0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #0f0;
+  font-family: monospace;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.power-password-input.power-error {
+  border-color: red;
+  box-shadow: 0 0 8px red;
+}
+
+.power-password-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #0f0;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.power-password-btn:hover {
+  background: #9f9;
 }/*# sourceMappingURL=style.css.map */

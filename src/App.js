@@ -7,6 +7,7 @@ import Level4 from "./components/chapters/terminal/level4";
 import Level5Dashboard from "./components/chapters/croyance/level5/Level5Dashboard";
 import Level6 from "./components/chapters/guerre";
 import ScreenGuard from "./utils/screenGuard";
+import Level7 from "./components/chapters/power";
 
 function App() {
   return (
@@ -15,29 +16,67 @@ function App() {
         {/* / redirige vers le dernier niveau valide */}
         <Route path="/" element={<RedirectToCurrentLevel />} />
 
-        <Route path="/level1" element={
-          <ScreenGuard><Level1 /></ScreenGuard>
-        } />
+        <Route
+          path="/level1"
+          element={
+            <ScreenGuard>
+              <Level1 />
+            </ScreenGuard>
+          }
+        />
 
-        <Route path="/level2" element={
-          <ScreenGuard><Level2 /></ScreenGuard>
-        } />
+        <Route
+          path="/level2"
+          element={
+            <ScreenGuard>
+              <Level2 />
+            </ScreenGuard>
+          }
+        />
 
-        <Route path="/level3" element={
-          <ScreenGuard><Level3 /></ScreenGuard>
-        } />
+        <Route
+          path="/level3"
+          element={
+            <ScreenGuard>
+              <Level3 />
+            </ScreenGuard>
+          }
+        />
 
-        <Route path="/level4" element={
-          <ScreenGuard><Level4 /></ScreenGuard>
-        } />
+        <Route
+          path="/level4"
+          element={
+            <ScreenGuard>
+              <Level4 />
+            </ScreenGuard>
+          }
+        />
 
-        <Route path="/level5" element={
-          <ScreenGuard><Level5Dashboard /></ScreenGuard>
-        } />
+        <Route
+          path="/level5"
+          element={
+            <ScreenGuard>
+              <Level5Dashboard />
+            </ScreenGuard>
+          }
+        />
 
-        <Route path="/level6" element={
-          <ScreenGuard><Level6 /></ScreenGuard>
-        } />
+        <Route
+          path="/level6"
+          element={
+            <ScreenGuard>
+              <Level6 />
+            </ScreenGuard>
+          }
+        />
+        <Route
+          path="/level7"
+          element={
+            <ScreenGuard>
+              <Level7 />
+            </ScreenGuard>
+          }
+        />
       </Routes>
     </Router>
   );
