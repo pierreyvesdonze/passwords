@@ -41,88 +41,112 @@ Object.keys(LETTER_FRAGMENTS).forEach(letter => {
 
 export default function LetterCanvas({ progress, switches, inputValue, isUnlocked }) {
   const canvasRef = useRef();
+  const frameRef = useRef(0); // 🌟 AJOUT OSCILLATION — compteur de frames
 
-  // Décalage vertical global pour remonter toutes les lettres ASCII
-  const asciiOffsetY = -80; // <-- change cette valeur pour ajuster la hauteur
+  const asciiOffsetY = -80;
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
     canvas.width = window.innerWidth * 0.5;
     canvas.height = window.innerHeight * 0.5;
-    const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2 + asciiOffsetY; // applique le décalage
+    let animationFrame;
 
-    const lettersArr = Object.keys(LETTER_FRAGMENTS);
-    const spacing = 120;
+    const animate = () => {
+      frameRef.current += 0.03; // vitesse de l'oscillation
+      const t = frameRef.current;
 
-    // Dessin des fragments A/R/T
-    lettersArr.forEach((letter, idx) => {
-      const fragments = LETTER_FRAGMENTS[letter];
-      const offsetX = (idx - 1) * spacing;
-      const offsetY = 0;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      fragments.forEach((f, i) => {
-        const initOffset = INITIAL_OFFSETS[letter][i];
-        const x0 = centerX + offsetX + initOffset.xOffset;
-        const y0 = centerY + offsetY + initOffset.yOffset;
-        const targetX = centerX + offsetX + f.targetX;
-        const targetY = centerY + offsetY + f.targetY;
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2 + asciiOffsetY;
+      const lettersArr = Object.keys(LETTER_FRAGMENTS);
+      const spacing = 120;
 
-        const ellipseX = Math.cos((progress[letter] / 100) * Math.PI * 2) * 8;
-        const ellipseY = Math.sin((progress[letter] / 100) * Math.PI * 2) * 5;
+      const allDone =
+        progress.A === 100 &&
+        progress.R === 100 &&
+        progress.T === 100;
 
-        const x = x0 + (targetX - x0) * (progress[letter] / 100) + ellipseX;
-        const y = y0 + (targetY - y0) * (progress[letter] / 100) + ellipseY;
+      lettersArr.forEach((letter, idx) => {
+        const fragments = LETTER_FRAGMENTS[letter];
+        const offsetX = (idx - 1) * spacing;
+
+        fragments.forEach((f, i) => {
+          const initOffset = INITIAL_OFFSETS[letter][i];
+          const x0 = centerX + offsetX + initOffset.xOffset;
+          const y0 = centerY + initOffset.yOffset;
+          const targetX = centerX + offsetX + f.targetX;
+          const targetY = centerY + f.targetY;
+
+          const progressRatio = progress[letter] / 100;
+
+          const baseX = x0 + (targetX - x0) * progressRatio;
+          const baseY = y0 + (targetY - y0) * progressRatio;
+
+          // 🌟 AJOUT OSCILLATION — micro mouvement quand tout est complété
+          let oscX = 0;
+          let oscY = 0;
+
+          if (allDone) {
+            const amp = 3; // amplitude fine
+            const freq = 1.5; // vitesse
+            oscX = Math.sin(t + i * 0.8) * amp;
+            oscY = Math.cos(t + i * 0.8) * amp;
+          }
+
+          ctx.fillStyle = "#0f0";
+          ctx.font = "20px Montserrat Alternates";
+          ctx.fillText(f.char, baseX + oscX, baseY + oscY);
+        });
+      });
+
+      // I / S
+      ctx.font = "20px Montserrat Alternates";
+      const baseISY = centerY + 80;
+      let offsetX = 0;
+
+      if (switches?.I) {
+        offsetX -= 20;
+        ctx.fillStyle = "#fff";
+        ctx.fillText("I", centerX + offsetX, baseISY);
+      }
+
+      if (switches?.S) {
+        ctx.fillStyle = "#fff";
+        ctx.fillText("S", centerX + offsetX + 40, baseISY);
+      }
+
+      // Faux input
+      if (isUnlocked) {
+        const inputWidth = 220;
+        const inputHeight = 40;
+
+        const inputX = centerX - inputWidth / 2;
+        const inputY = baseISY + 70;
+
+        ctx.fillStyle = "#111";
+        ctx.fillRect(inputX, inputY, inputWidth, inputHeight);
+
+        ctx.strokeStyle = "#0f0";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(inputX, inputY, inputWidth, inputHeight);
 
         ctx.fillStyle = "#0f0";
-        ctx.font = "20px Montserrat Alternates";
-        ctx.fillText(f.char, x, y);
-      });
-    });
+        ctx.font = "18px Montserrat Alternates";
+        ctx.textAlign = "left";
+        ctx.fillText(inputValue || "Art is what you want", inputX + 10, inputY + 26);
+      }
 
-    // Affichage I/S rouges sous ART
-    ctx.font = "20px Montserrat Alternates";
-    const baseISY = centerY + 80; // position verticale des I/S
-    let offsetX = 0;
+      animationFrame = requestAnimationFrame(animate);
+    };
 
-    if (switches?.I) {
-      offsetX -= 20;
-      ctx.fillStyle = "rgba(255, 255, 255, 1)";
-      ctx.fillText("I", centerX + offsetX, baseISY);
-    }
-    if (switches?.S) {
-      ctx.fillStyle = "rgba(255, 255, 255, 1)";
-      ctx.fillText("S", centerX + offsetX + 40, baseISY);
-    }
+    animate();
 
-    // 🔥 AJOUT — dessin du faux input dans le canvas
-    if (isUnlocked) {
-      const inputWidth = 220;
-      const inputHeight = 40;
-
-      const inputX = centerX - inputWidth / 2;
-      const inputY = baseISY + 70; // légèrement plus bas, comme demandé
-
-      // Fond
-      ctx.fillStyle = "#111";
-      ctx.fillRect(inputX, inputY, inputWidth, inputHeight);
-
-      // Bordure
-      ctx.strokeStyle = "#0f0";
-      ctx.lineWidth = 2;
-      ctx.strokeRect(inputX, inputY, inputWidth, inputHeight);
-
-      // Texte (contenu du vrai input)
-      ctx.fillStyle = "#0f0";
-      ctx.font = "18px Montserrat Alternates";
-      ctx.textAlign = "left";
-      ctx.fillText(inputValue || "Art is what you want", inputX + 10, inputY + 26);
-    }
-
-  }, [progress, switches, inputValue, isUnlocked, asciiOffsetY]);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [progress, switches, inputValue, isUnlocked]);
 
   return (
     <canvas
