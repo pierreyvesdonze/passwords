@@ -48,7 +48,7 @@ export default function TerminalGlitch({ textLines, onComplete, duration = 2000 
       style={{
         background: "black",
         color: "#0f0",
-        fontFamily: "monospace",
+        fontFamily: "Montserrat Alternates",
         padding: "1rem",
         whiteSpace: "pre-wrap",
         height: "100vh"

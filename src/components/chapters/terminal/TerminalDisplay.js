@@ -12,7 +12,7 @@ export default function TerminalDisplay({ history }) {
       style={{
         background: "black",
         color: "#0f0",
-        fontFamily: "monospace",
+        fontFamily: "Montserrat Alternates",
         padding: "1rem",
         overflowY: "auto",
         whiteSpace: "pre-wrap",
