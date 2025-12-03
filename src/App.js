@@ -8,6 +8,7 @@ import Level5Dashboard from "./components/chapters/croyance/level5/Level5Dashboa
 import Level6 from "./components/chapters/guerre";
 import ScreenGuard from "./utils/screenGuard";
 import Level7 from "./components/chapters/power";
+import Level8 from "./components/chapters/art";
 
 function App() {
   return (
@@ -69,11 +70,21 @@ function App() {
             </ScreenGuard>
           }
         />
+
         <Route
           path="/level7"
           element={
             <ScreenGuard>
               <Level7 />
+            </ScreenGuard>
+          }
+        />
+
+        <Route
+          path="/level8"
+          element={
+            <ScreenGuard>
+              <Level8 />
             </ScreenGuard>
           }
         />
