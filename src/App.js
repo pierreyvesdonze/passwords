@@ -9,6 +9,9 @@ import Level6 from "./components/chapters/guerre";
 import ScreenGuard from "./utils/screenGuard";
 import Level7 from "./components/chapters/power";
 import Level8 from "./components/chapters/art";
+import Level9 from "./components/chapters/terminal/level9";
+import Level10 from "./components/chapters/terminal/level10";
+import Level11 from "./components/chapters/oubli";
 
 function App() {
   return (
@@ -85,6 +88,33 @@ function App() {
           element={
             <ScreenGuard>
               <Level8 />
+            </ScreenGuard>
+          }
+        />
+
+        <Route
+          path="/level9"
+          element={
+            <ScreenGuard>
+              <Level9 />
+            </ScreenGuard>
+          }
+        />
+
+        <Route
+          path="/level10"
+          element={
+            <ScreenGuard>
+              <Level10 />
+            </ScreenGuard>
+          }
+        />
+
+          <Route
+          path="/level11"
+          element={
+            <ScreenGuard>
+              <Level11 />
             </ScreenGuard>
           }
         />

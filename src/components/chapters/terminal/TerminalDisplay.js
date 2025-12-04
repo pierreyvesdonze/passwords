@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-export default function TerminalDisplay({ history }) {
+export default function TerminalDisplay({ history, textColor }) {
   const lastLineRef = useRef(null);
 
   useEffect(() => {
@@ -11,11 +11,13 @@ export default function TerminalDisplay({ history }) {
     <div
       style={{
         background: "black",
-        color: "#0f0",
+        color: textColor || "#0f0",
         fontFamily: "Montserrat Alternates",
         padding: "1rem",
         overflowY: "auto",
         whiteSpace: "pre-wrap",
+        flex: 1,
+        fontSize: "1em"
       }}
     >
       {history.map((line, i) => {

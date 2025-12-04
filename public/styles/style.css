@@ -760,4 +760,16 @@ ART
   100% {
     transform: scale(1);
   }
+}
+/*
+******************************************
+FINAL
+******************************************
+*/
+.leurre {
+  background-image: url("../images/leurre.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 }/*# sourceMappingURL=style.css.map */

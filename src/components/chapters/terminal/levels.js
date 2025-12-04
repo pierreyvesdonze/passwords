@@ -190,6 +190,7 @@ export const levels = {
       },
     },
   },
+
   4: {
     password: "societe",
     successMessage: "SUCCESS : Le second chapitre est débloqué.",
@@ -215,6 +216,104 @@ export const levels = {
               type: "file",
               content:
                 "nous vivons tous dedans, en tant que citoyens, avec ses lois et nos devoirs",
+            },
+          },
+        },
+      },
+    },
+  },
+
+  9: {
+    password: "devi4nce-secret-h4ck",
+    successMessage: "SUCCESS : Accès ADMIN autorisé.",
+    levelData: {
+      startPath: "/",
+      fileSystem: {
+        "/": {
+          type: "dir",
+          children: {
+            "confidentiel.txt": {
+              type: "file",
+              content:
+                "L'accès au terminal ADMIN est sécurisé et strictement limité au personnel autorisé. Toute intrusion dans le système sans autorisation préalable, entraînera des sanctions.",
+            },
+            ".cache.txt": {
+              type: "file",
+              content: "Inspecte-moi (clic droit -> inspecter)",
+            },
+          },
+        },
+      },
+    },
+  },
+
+  10: {
+    password: "COd3-R3d-D3plOy-2026",
+    successMessage: "ACCÈS BASE DE DONNÉES CENTRALE GRANTED.",
+    levelData: {
+      startPath: "/",
+      fileSystem: {
+        "/": {
+          type: "dir",
+          children: {
+            "readme.txt": {
+              type: "file",
+              content:
+                "L'accès aux archives nécessite la clé. La clé est la phrase complète dissimulée dans les quatre registres : A, B, C et D. Commencez par le Registre A. (P.S. : Le Registre A est Banni). NB: Un bloc-note pourrait-être utile.",
+            },
+            Registre_A: {
+              type: "dir",
+              children: {
+                "document_banni.txt": {
+                  type: "file",
+                  content:
+                    "Ce fichier est corrompu et non lisible. Tout contenu y est banni de l'affichage.",
+                },
+                ".indice_a.txt": {
+                  type: "file",
+                  content:
+                    "Le contenu est peut-être en dehors de ce terminal",
+                },
+              },
+            },
+            Archives: {
+              type: "dir",
+              children: {
+                "FragmentB.txt": {
+                  type: "file",
+                  content: "Fragment B : R3d-",
+                },
+                System: {
+                  type: "dir",
+                  children: {
+                    config_v7: {
+                      type: "dir",
+                      children: {
+                        ".FragmentC.txt": {
+                          type: "file",
+                          content: "Fragment C : D3pl0y-",
+                        },
+                      },
+                    },
+                  },
+                },
+                // Fragment D : Nécessite une commande spéciale (ex: ls -la)
+                ".FragmentD.txt": {
+                  type: "file",
+                  content: "Fragment D : 2026",
+                },
+              },
+            },
+
+            // Cible finale
+            DATABASE_ROOT: {
+              type: "dir",
+              children: {
+                "PASS_FINAL.txt": {
+                  type: "file",
+                  content: "Accès refusé.",
+                },
+              },
             },
           },
         },

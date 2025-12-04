@@ -10,20 +10,30 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
   const password = levels[levelNumber].password;
   const successMessage = levels[levelNumber].successMessage;
 
-  const [history, setHistory] = useState([
-    "SYSTEM v1.0.15 — ACCESS REQUIRED",
+  // couleur texte centralisée pour éviter disparités
+  const textColor = levelNumber >= 9 ? "#0ff" : "#0f0";
+
+  // intro calculée avant useState pour être sûre d'être utilisée
+  const introMessage =
+    levelNumber >= 9
+      ? "SYSTEM v2.3.11 — ACCESS FORBIDDEN"
+      : "SYSTEM v1.0.15 — ACCESS REQUIRED";
+
+  // useState initialisé via fonction pour garantir les valeurs au montage
+  const [history, setHistory] = useState(() => [
+    introMessage,
     "Tape 'help' pour voir les commandes.",
-    levelData.enigme || "" // au cas où ton énigme est ici
+    levelData.enigme || "",
   ]);
 
   const [currentPath, setCurrentPath] = useState(levelData.startPath);
   const [showGlitch, setShowGlitch] = useState(false);
+
   const runCommand = (input) => {
     const trimmed = input.trim();
 
     // --- Cas spécial : accent interdit pour SOCIETE ---
     if (trimmed.toLowerCase() === "société") {
-      // on recolorie l'énigme existante sans rajouter de nouvelle énigme
       setHistory((prev) =>
         prev.map((line) =>
           line.includes("plus rien n'a d'accent")
@@ -35,7 +45,6 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
         )
       );
 
-      // message d'erreur dans l'historique
       setHistory((h) => [
         ...h,
         `ROOT ${currentPath} > ${input}`,
@@ -45,19 +54,17 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
       return;
     }
 
-    // --- Vérification du mot de passe normal ---
+    // --- Vérification du mot de passe ---
     if (trimmed === password) {
       const output = successMessage;
 
       setHistory((h) => [...h, `ROOT ${currentPath} > ${input}`, output]);
 
-       // Si niveau 4, déclenchement du glitch
       if (levelNumber === 4) {
         setShowGlitch(true);
         return;
       }
 
-      // redirection automatique après 2 sec
       setTimeout(() => {
         onLevelComplete(levelNumber);
       }, 2000);
@@ -70,7 +77,13 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
     const [cmd, ...args] = trimmed.split(" ");
 
     if (registry[cmd]) {
-      output = registry[cmd](args, currentPath, setCurrentPath, levelData);
+      output = registry[cmd](
+        args,
+        currentPath,
+        setCurrentPath,
+        levelData,
+        levelNumber
+      );
     } else {
       output = `Unknown command: ${cmd}`;
     }
@@ -78,22 +91,31 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
     setHistory((h) => [...h, `ROOT ${currentPath} > ${input}`, output]);
   };
 
-    // --- Affichage glitch si activé ---
   if (showGlitch) {
     return (
       <TerminalGlitch
         textLines={history}
-        duration={2500} // durée de l'animation en ms
+        duration={2500}
         onComplete={() => onLevelComplete(levelNumber)}
       />
     );
   }
 
-
   return (
-    <div className="terminal-wrapper">
-      <TerminalDisplay history={history} />
-      <TerminalInput runCommand={runCommand} currentPath={currentPath} />
+    <div
+      className="terminal-wrapper"
+      style={{
+        color: textColor,
+      }}
+    >
+      <TerminalDisplay history={history} textColor={textColor} />
+      <TerminalInput
+        runCommand={runCommand}
+        currentPath={currentPath}
+        levelNumber={levelNumber}
+        textColor={textColor}
+        pushToHistory={(line) => setHistory((h) => [...h, line])}
+      />
     </div>
   );
 }

@@ -116,7 +116,7 @@ export default function LetterCanvas({ progress, switches, inputValue, isUnlocke
 
       if (switches?.S) {
         ctx.fillStyle = "#fff";
-        ctx.fillText("S", centerX + offsetX + 40, baseISY);
+        ctx.fillText("S", centerX + offsetX + 20, baseISY);
       }
 
       // Faux input
@@ -134,7 +134,7 @@ export default function LetterCanvas({ progress, switches, inputValue, isUnlocke
         ctx.lineWidth = 2;
         ctx.strokeRect(inputX, inputY, inputWidth, inputHeight);
 
-        ctx.fillStyle = "#0f0";
+        ctx.fillStyle = "rgba(28, 134, 28, 1)";
         ctx.font = "18px Montserrat Alternates";
         ctx.textAlign = "left";
         ctx.fillText(inputValue || "Art is what you want", inputX + 10, inputY + 26);
