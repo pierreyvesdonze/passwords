@@ -1,9 +1,30 @@
+// ----- helper -----
+function getNode(fs, path) {
+  const parts = path.split("/").filter(Boolean);
+  let node = fs["/"];
+  for (const p of parts) {
+    if (!node.children[p]) return null;
+    node = node.children[p];
+  }
+  return node;
+}
+
+const MIN_LEVEL_ADVANCED_LS = 9; // Définir la limite ici
+
 export const registry = {
-  ls: (args, currentPath, setCurrentPath, levelData) => {
+  ls: (args, currentPath, setCurrentPath, levelData, levelNumber) => {
+    // AJOUT de levelNumber
     const node = getNode(levelData.fileSystem, currentPath);
     if (!node || node.type !== "dir") return "Not a directory";
 
     const files = Object.keys(node.children);
+
+    // RESTRICTION DE NIVEAU
+    if (levelNumber < MIN_LEVEL_ADVANCED_LS) {
+      if (args[0] === "-la" || args[0] === "-al" || args[0] === "--all") {
+        return "Permission denied: Advanced flags are restricted.";
+      }
+    }
 
     if (args[0] === "-la" || args[0] === "-al" || args[0] === "--all") {
       return files.join("  ");
@@ -14,11 +35,18 @@ export const registry = {
     return visible.join("  ");
   },
 
-  ll: (args, currentPath, setCurrentPath, levelData) => {
+  ll: (args, currentPath, setCurrentPath, levelData, levelNumber) => {
+    // AJOUT de levelNumber
+    // RESTRICTION DE NIVEAU
+    if (levelNumber < MIN_LEVEL_ADVANCED_LS) {
+      return "Permission denied: Command restricted (Try 'ls' only).";
+    }
+
     const node = getNode(levelData.fileSystem, currentPath);
     if (!node || node.type !== "dir") return "Not a directory";
-    return Object.keys(node.children).join("  "); // équivalent à ls -la
+    return Object.keys(node.children).join("  ");
   },
+
 
   cd: (args, currentPath, setCurrentPath, levelData) => {
     const target = args[0];
@@ -75,22 +103,30 @@ export const registry = {
     return "Session cleared. Votre progression est réinitialisée.";
   },
 
-  help: () => {
-    return `Commandes disponibles :
+  help: (args, currentPath, setCurrentPath, levelData, levelNumber) => {
+    const advancedHelp = `
+  ls -la / ll
+    Liste détaillée (+ fichiers cachés).
+    `;
+
+    let baseHelp = `Commandes disponibles :
 
   help
     Affiche cette liste d'aide.
 
   ls
     Liste le contenu du dossier courant.
+`;
 
-  ls -la
-    Liste détaillée (+ fichiers cachés).
+    if (levelNumber >= MIN_LEVEL_ADVANCED_LS) {
+      baseHelp += advancedHelp;
+    }
 
+    baseHelp += `
   cd <dossier>
     Change de dossier. Exemples :
       cd dossier
-      cd .. (retour en arrière)
+      cd ..
       cd /
       cd ./truc
       cd ../autre
@@ -105,16 +141,7 @@ Notes :
   - Les chemins fonctionnent comme sous Linux.
   - Certaines commandes peuvent être bloquées selon le niveau.
   - Explore, fouille, lis les fichiers… trouve le mot de passe.`;
+
+    return baseHelp;
   },
 };
-
-// ----- helper -----
-function getNode(fs, path) {
-  const parts = path.split("/").filter(Boolean);
-  let node = fs["/"];
-  for (const p of parts) {
-    if (!node.children[p]) return null;
-    node = node.children[p];
-  }
-  return node;
-}
