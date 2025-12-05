@@ -105,8 +105,8 @@ export const registry = {
 
   help: (args, currentPath, setCurrentPath, levelData, levelNumber) => {
     const advancedHelp = `
-  ls -la / ll
-    Liste détaillée (+ fichiers cachés).
+  ls -la (ou ll)
+    Liste + fichiers cachés.
     `;
 
     let baseHelp = `Commandes disponibles :
@@ -126,13 +126,13 @@ export const registry = {
   cd <dossier>
     Change de dossier. Exemples :
       cd dossier
-      cd ..
+      cd .. (revenir en arrière)
       cd /
       cd ./truc
       cd ../autre
 
   cat <fichier>
-    Affiche le contenu d’un fichier.
+    Affiche le contenu d’un fichier. Exemple : cat exemple.tx
 
   reset
     Réinitialise toute la progression.

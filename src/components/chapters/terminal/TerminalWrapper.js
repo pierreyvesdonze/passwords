@@ -22,7 +22,7 @@ export default function TerminalWrapper({ levelNumber, onLevelComplete }) {
   // useState initialisé via fonction pour garantir les valeurs au montage
   const [history, setHistory] = useState(() => [
     introMessage,
-    "Tape 'help' pour voir les commandes.",
+    "Taper 'help' pour voir les commandes.",
     levelData.enigme || "",
   ]);
 
