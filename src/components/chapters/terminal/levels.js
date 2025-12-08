@@ -291,7 +291,7 @@ export const levels = {
                       children: {
                         ".FragmentC.txt": {
                           type: "file",
-                          content: "Fragment C : D3pl0y-",
+                          content: "Fragment C : D3plOy-",
                         },
                       },
                     },
