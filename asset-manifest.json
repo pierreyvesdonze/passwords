@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/passwords/static/js/main.b6e0ebaa.js",
+    "main.js": "/passwords/static/js/main.068b80fb.js",
     "index.html": "/passwords/index.html",
-    "main.b6e0ebaa.js.map": "/passwords/static/js/main.b6e0ebaa.js.map"
+    "main.068b80fb.js.map": "/passwords/static/js/main.068b80fb.js.map"
   },
   "entrypoints": [
-    "static/js/main.b6e0ebaa.js"
+    "static/js/main.068b80fb.js"
   ]
 }
