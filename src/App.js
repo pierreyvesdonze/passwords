@@ -17,118 +17,25 @@ import Level12 from "./components/chapters/level12";
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* / redirige vers le dernier niveau valide */}
-        <Route path="/" element={<RedirectToCurrentLevel />} />
+      <ScreenGuard>
+        <Routes>
+          {/* / redirige vers le dernier niveau valide */}
+          <Route path="/" element={<RedirectToCurrentLevel />} />
 
-        <Route
-          path="/level1"
-          element={
-            <ScreenGuard>
-              <Level1 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level2"
-          element={
-            <ScreenGuard>
-              <Level2 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level3"
-          element={
-            <ScreenGuard>
-              <Level3 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level4"
-          element={
-            <ScreenGuard>
-              <Level4 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level5"
-          element={
-            <ScreenGuard>
-              <Level5Dashboard />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level6"
-          element={
-            <ScreenGuard>
-              <Level6 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level7"
-          element={
-            <ScreenGuard>
-              <Level7 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level8"
-          element={
-            <ScreenGuard>
-              <Level8 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level9"
-          element={
-            <ScreenGuard>
-              <Level9 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level10"
-          element={
-            <ScreenGuard>
-              <Level10 />
-            </ScreenGuard>
-          }
-        />
-
-        <Route
-          path="/level11"
-          element={
-            <ScreenGuard>
-              <Level11 />
-            </ScreenGuard>
-          }
-        />
-
-         <Route
-          path="/level12"
-          element={
-            <ScreenGuard>
-              <Level12 />
-            </ScreenGuard>
-          }
-        />
-      </Routes>
+          <Route path="/level1" element={<Level1 />} />
+          <Route path="/level2" element={<Level2 />} />
+          <Route path="/level3" element={<Level3 />} />
+          <Route path="/level4" element={<Level4 />} />
+          <Route path="/level5" element={<Level5Dashboard />} />
+          <Route path="/level6" element={<Level6 />} />
+          <Route path="/level7" element={<Level7 />} />
+          <Route path="/level8" element={<Level8 />} />
+          <Route path="/level9" element={<Level9 />} />
+          <Route path="/level10" element={<Level10 />} />
+          <Route path="/level11" element={<Level11 />} />
+          <Route path="/level12" element={<Level12 />} />
+        </Routes>
+      </ScreenGuard>
     </Router>
   );
 }
