@@ -745,7 +745,7 @@ ART
 
 /*
 ******************************************
-FINAL
+LEURRE
 ******************************************
 */
 .leurre {
@@ -754,4 +754,58 @@ FINAL
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
+}
+
+/*
+******************************************
+LEVEL12
+******************************************
+*/
+.level12-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(1, 56, 23, 0.562) 0%, black 80%);
+}
+
+.level12-input {
+  border: 2px solid #00ff66;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.4);
+  color: #99ffbb;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.level12-ok {
+  border-color: #00ff66;
+  color: #99ffbb;
+}
+
+.level12-h3 {
+  color: #99ffbb;
+}
+
+.level12-error {
+  border-color: red;
+  color: #ff8a8a;
+}
+
+.level12-forgot {
+  margin-top: 16px;
+  color: #99ffbb;
+  font-family: monospace;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.level12-forgot:hover {
+  color: #ccffdd;
 }
