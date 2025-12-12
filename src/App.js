@@ -12,6 +12,7 @@ import Level8 from "./components/chapters/art";
 import Level9 from "./components/chapters/terminal/level9";
 import Level10 from "./components/chapters/terminal/level10";
 import Level11 from "./components/chapters/oubli";
+import Level12 from "./components/chapters/level12";
 
 function App() {
   return (
@@ -110,11 +111,20 @@ function App() {
           }
         />
 
-          <Route
+        <Route
           path="/level11"
           element={
             <ScreenGuard>
               <Level11 />
+            </ScreenGuard>
+          }
+        />
+
+         <Route
+          path="/level12"
+          element={
+            <ScreenGuard>
+              <Level12 />
             </ScreenGuard>
           }
         />
