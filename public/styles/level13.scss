@@ -1,0 +1,332 @@
+
+/*
+******************************************
+LEVEL13
+******************************************
+*/
+.level13-navbar {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 0;
+  color: var(--navlink-color);
+}
+
+.level13-home-icon {
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/level13-home.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+}
+
+.nav-link {
+  color: var(--font-green-color);
+  text-decoration: none !important;
+  &:hover {
+    color: white;
+  }
+}
+
+.level13-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: radial-gradient(circle, rgba(1, 56, 23, 0.562) 0%, black 80%);
+  padding-bottom: 80px;
+}
+
+.level13-grid {
+  display: grid;
+  margin-top: 300px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.level13-card {
+  width: 200px;
+  height: 120px;
+  background: #11111179;
+  border: 2px solid #2e2e2e;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  transition: 0.25s ease;
+}
+
+.level13-card:hover {
+  background: #1a1a1a31;
+  border-color: #3a3a3a;
+  transform: translateY(-3px);
+}
+
+.level13-card-title {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.level13-container-maison {
+  padding: 0 200px;
+  text-align: justify;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.level13-kichen-bg {
+  background-image: url("../images/kitchen-restoration.png");
+  width: 100%;
+  height: 360px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.level13-produits {
+  overflow-y: auto;
+  margin: 0 200px;
+}
+
+.level13-heart,
+.level13-foie,
+.level13-poumon,
+.level13-skull {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+}
+
+.level13-heart {
+  background-image: url(../images/heart.png);
+}
+
+.level13-foie {
+  background-image: url(../images/foie.png);
+}
+
+.level13-poumon {
+  background-image: url(../images/poumons.png);
+}
+
+.level13-skull {
+  background-image: url(../images/skull.png);
+}
+
+// METS
+.level13-mets {
+  margin: 90px 200px;
+  text-align: center;
+}
+
+.level13-mets h1 {
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.level13-plat {
+  margin-bottom: 40px;
+}
+
+.level13-plat span {
+  font-size: 14px;
+  opacity: 0.75;
+  display: block;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+.level13-hr-floral {
+  border: none;
+  height: 1px;
+  width: 60%;
+  margin: 0 auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(120, 200, 150, 0.6),
+    transparent
+  );
+}
+
+// Medias
+.media-article {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.media-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.media-meta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.media-body p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+  text-align: justify;
+}
+
+.media-quote {
+  font-style: italic;
+  opacity: 0.85;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.media-footer {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.media-reporter strong {
+  color: white;
+}
+
+// Mémo
+.secret-block {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.memo-revealed .secret-block {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.secret-opacity {
+  opacity: 0;
+}
+
+.secret-color-memo {
+  color: #1c1c1c;
+}
+
+.secret-inverted {
+  transform: scaleY(-1);
+  filter: blur(3px);
+}
+
+/* Creepy */
+.creepy-page {
+  max-height: 80vh;
+  max-width: 60%;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.secret-block-creepy {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  margin-top: 2rem;
+}
+
+.creepy-secret-revealed .secret-block-creepy {
+  opacity: 1;
+}
+
+.creepy-secret-fragment {
+  color: #8b0000;
+  font-style: italic;
+}
+
+.secret-creepy-opacity {
+  opacity: 0;
+}
+
+.secret-color-creepy {
+  color:#51675929;
+}
+
+.secret-creepy-blur {
+  filter: blur(3px);
+}
+
+/* FOOTER */
+.creepy-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.6)
+  );
+  border-top: 1px solid rgba(0, 255, 100, 0.2);
+  z-index: 10;
+}
+
+.creepy-password-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.creepy-password-input {
+  background: black;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  font-family: monospace;
+  width: 220px;
+  outline: none;
+  transition: border 0.3s ease, color 0.3s ease;
+}
+
+.creepy-password-input.creepy-ok {
+  border-color: #00ff6a;
+  color: #00ff6a;
+}
+
+.creepy-password-input.creepy-error {
+  border-color: #ff0033;
+  color: #ff0033;
+}
+
+.creepy-password-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.creepy-password-btn:hover {
+  border-color: #00ff6a;
+}
