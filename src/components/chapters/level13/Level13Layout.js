@@ -24,7 +24,7 @@ export default function Level13Layout() {
             <div className="level13-card-title">Mémo</div>
           </Link>
 
-          <Link to="/lien5" className="level13-card">
+          <Link to="/level13/creepy" className="level13-card">
             <div className="level13-card-title">*****</div>
           </Link>
 

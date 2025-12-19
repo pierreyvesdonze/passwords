@@ -11,7 +11,7 @@ export default function Memo() {
   const storageKey = "level13_memo_access_granted";
 
   // debug
-/*   localStorage.setItem("level13_memo_access_granted", "false"); */
+  /*   localStorage.setItem("level13_memo_access_granted", "false"); */
 
   // Vérifie si l'accès est déjà sauvegardé au chargement de la page
   useEffect(() => {
@@ -19,6 +19,10 @@ export default function Memo() {
     if (storedAccess === "true") {
       setAccessGranted(true);
     }
+
+    window.revealMemo = () => {
+      document.body.classList.add("memo-revealed");
+    };
   }, []);
 
   const handleSubmit = (e) => {
@@ -115,6 +119,10 @@ export default function Memo() {
             className="level13-memo-container"
             style={{
               marginTop: "20px",
+              maxWidth: "80%",
+              height: "60vh",
+
+              overflowY: "auto",
               padding: "30px",
               background: "#1c1c1c",
               borderRadius: "12px",
@@ -124,7 +132,35 @@ export default function Memo() {
               fontSize: "18px",
             }}
           >
-            <h1>truc</h1>
+            <h1>Notes</h1>
+            <p>
+              Parfois, la vérité est ailleurs. Ces quelques notes vous
+              rappelleront qu’il faut savoir regarder au-delà des apparences. La
+              console du navigateur (non loin de l’inspecteur) peut être utile
+              pour hacker. Simple hack pour tester : entrer dans la console :
+              revealMemo()
+            </p>
+
+            <br />
+
+            <div className="secret-block">
+              <span style={{ fontStyle: "italic" }}>
+                Hacked !
+              </span>
+              Dans cette phrase, le mot
+              <span className="secret-opacity"> "Opacité"</span> et le mot
+              <span className="secret-color-memo"> "Couleur"</span> sont masqués
+              par des propriétés CSS, que l'on peut changer dans l'inspecteur.
+              Un mot a une opacité à 0, l'autre a une couleur invisible. Changer
+              ces paramètres pour afficher la phrase en entier.
+            </div>
+
+            <br />
+
+            <p className="secret-inverted">
+              Pour des raisons de sécurité, tous les hacks ne peuvent être
+              dévoilés. Explorez, inspectez, testez.
+            </p>
           </div>
         )}
       </div>

@@ -19,6 +19,7 @@ import Produits from "./components/chapters/level13/Produits";
 import Mets from "./components/chapters/level13/Mets";
 import Medias from "./components/chapters/level13/Medias";
 import Memo from "./components/chapters/level13/Memo";
+import Creepy from "./components/chapters/level13/Creepy";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path = "/level13/mets" element     = {<Mets />} />
           <Route path = "/level13/medias" element   = {<Medias />} />
           <Route path = "/level13/memo" element     = {<Memo />} />
+          <Route path = "/level13/creepy" element   = {<Creepy />} />
         </Routes>
       </ScreenGuard>
     </Router>
