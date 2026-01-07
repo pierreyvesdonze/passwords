@@ -14,7 +14,7 @@ LEVEL13
   background-color: black;
   display: flex;
   justify-content: space-evenly;
-  padding: 15px 0;
+  padding: 20px 0;
   color: var(--navlink-color);
 }
 
@@ -38,8 +38,8 @@ LEVEL13
 
 .level13-container {
   width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
+  min-height: 100vh;
+  overflow-y: auto;
   color: white;
   display: flex;
   flex-direction: column;
@@ -343,10 +343,11 @@ GENERAL
   font-family: "Montserrat Alternates", sans-serif;
 }
 
-body {
-  height: 100vh;
+html, body {
   margin: 0;
-  overflow: hidden;
+  padding: 0;
+  height: auto;
+  min-height: 100%;
 }
 
 a {

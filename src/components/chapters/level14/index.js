@@ -5,14 +5,12 @@ import { motion } from "framer-motion";
 
 export default function Level14() {
   const texts = [
-    "Bravo",
-    "Vous êtes parvenus à briller de vos talents de hacker.",
-    "Désormais, l'outil inspecteur est inutile. Vous pouvez le fermer (F12).",
-    "Désormais, l'inspecteur, c'est VOUS !",
-    "Vous devrez continuer de trouver des mots de passe...",
-    "Afin d'honorer la mémoire de Paul, Omar, Simone, Seb, Franck et Luc.",
-    "Bon courage !",
-    "...",
+    "Félicitations !",
+    "Vous avez trouvé tous les mots de passe.",
+    "Votre curiosité et votre perspicacité ont été récompensées.",
+    "Merci d'avoir joué et d'avoir exploré tous les secrets de ce jeu.",
+    "Peut-être que certains mystères resteront irrésolus…",
+    "À bientôt pour de nouvelles aventures !",
   ];
 
   const [showButton, setShowButton] = useState(false);
@@ -25,9 +23,9 @@ export default function Level14() {
         setTimeout(() => {
           setCurrentTextIndex(currentTextIndex + 1);
         }, 4500);
-      } else {
+      } /* else {
         setShowButton(true);
-      }
+      } */
     };
 
     // Appeler la fonction pour passer au texte suivant après la fin de l'animation
@@ -49,11 +47,11 @@ export default function Level14() {
           text={texts[currentTextIndex]}
         />
 
-        {showButton && (
+{/*         {showButton && (
           <Link to="/level15" className="level14-link">
             Continuer
           </Link>
-        )}
+        )} */}
       </div>
     </motion.div>
   );
