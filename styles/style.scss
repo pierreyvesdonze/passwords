@@ -19,10 +19,11 @@ GENERAL
 * {
   font-family: "Montserrat Alternates", sans-serif;
 }
-body {
-  height: 100vh;
+html, body {
   margin: 0;
-  overflow: hidden;
+  padding: 0;
+  height: auto;
+  min-height: 100%;
 }
 
 a {

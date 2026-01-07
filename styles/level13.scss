@@ -9,7 +9,7 @@ LEVEL13
   background-color: black;
   display: flex;
   justify-content: space-evenly;
-  padding: 15px 0;
+  padding: 20px 0;
   color: var(--navlink-color);
 }
 
@@ -33,15 +33,15 @@ LEVEL13
 
 .level13-container {
   width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
+  min-height: 100vh;
+  overflow-y: auto;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background: radial-gradient(circle, rgba(1, 56, 23, 0.562) 0%, black 80%);
-  padding-bottom: 80px;
+ /*  padding-bottom: 80px; */
 }
 
 .level13-grid {
